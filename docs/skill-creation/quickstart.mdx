@@ -3,7 +3,7 @@ title: "Quickstart"
 description: "Create your first Agent Skill and see it work in VS Code."
 ---
 
-In this tutorial, you'll create a skill that gives an agent the capability to roll dice using true randomness.
+In this tutorial, you'll create a skill that gives an agent the capability to roll dice using a random number generator.
 
 ## Prerequisites
 
@@ -20,14 +20,14 @@ A skill is a folder containing a `SKILL.md` file. VS Code looks for skills in `.
 ````markdown .agents/skills/roll-dice/SKILL.md
 ---
 name: roll-dice
-description: Roll dice with true randomness. Use when asked to roll a die (d6, d20, etc.), roll dice, or generate a random dice roll.
+description: Roll dice using a random number generator. Use when asked to roll a die (d6, d20, etc.), roll dice, or generate a random dice roll.
 ---
 
 To roll a die, use the following command that generates a random number from 1
 to the given number of sides:
 
 ```bash
-shuf -i 1-<sides> -n 1
+echo $((RANDOM % <sides> + 1))
 ```
 
 ```powershell
